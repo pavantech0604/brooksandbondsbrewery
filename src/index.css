@@ -1,0 +1,139 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+
+@theme {
+  --color-background: #121316;
+  --color-primary: #f2ca50;
+  --color-primary-container: #d4af37;
+  --color-secondary: #f0bf5c;
+  --color-on-surface: #e3e2e6;
+  --color-on-surface-variant: #d0c5af;
+  --color-surface-dim: #121316;
+  --color-surface-container-low: #1b1b1f;
+  --color-surface-container: #1f1f23;
+  --color-surface-container-high: #292a2d;
+  --color-surface-container-highest: #343538;
+  --color-outline-variant: #4d4635;
+
+  --font-headline: "Cormorant Garamond", serif;
+  --font-brand: "Newsreader", serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+
+  --radius-DEFAULT: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #121316;
+  }
+
+  body {
+    @apply bg-background text-on-surface font-body selection:bg-primary/30 selection:text-primary;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .brass-line {
+    height: 0.5px;
+    background: linear-gradient(90deg, transparent, #f2ca504d, transparent);
+  }
+
+  .hero-gradient {
+    background: linear-gradient(to bottom, rgba(18, 19, 22, 0.4), rgba(18, 19, 22, 1));
+  }
+
+  .glass-card {
+    background: rgba(31, 31, 35, 0.6);
+    backdrop-filter: blur(16px);
+    border: 0.5px solid rgba(242, 202, 80, 0.15);
+  }
+
+  .spotlight {
+    background: radial-gradient(circle at center, rgba(242, 202, 80, 0.08) 0%, transparent 70%);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(242, 202, 80, 0.3);
+  }
+
+  .brass-gradient {
+    background: linear-gradient(135deg, #f2ca50 0%, #d4af37 100%);
+  }
+
+  .animate-fizz {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .animate-fizz::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-image: radial-gradient(circle at center, #f2ca50 1px, transparent 1px);
+    background-size: 15px 15px;
+    animation: fizz 3s linear infinite;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg,
+        rgba(242, 202, 80, 0) 0%,
+        rgba(242, 202, 80, 0.1) 50%,
+        rgba(242, 202, 80, 0) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  .container-premium {
+    @apply max-w-[1440px] mx-auto px-6 md:px-12 w-full;
+  }
+}
+
+@keyframes fizz {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #121316;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4d4635;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f2ca50;
+}
