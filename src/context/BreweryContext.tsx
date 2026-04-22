@@ -113,12 +113,12 @@ export const BreweryProvider: React.FC<{ children: React.ReactNode }> = ({ child
     // Subscribe to real-time changes — ONLY ONE SUBSCRIPTION GLOBALLY
     const beersChannel = supabase
       .channel('beers-global')
-      .on('postgres_changes', { event: '*', table: 'beers' }, () => fetchData())
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'beers' }, () => fetchData())
       .subscribe();
 
     const resChannel = supabase
       .channel('res-global')
-      .on('postgres_changes', { event: '*', table: 'reservations' }, () => fetchData())
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'reservations' }, () => fetchData())
       .subscribe();
 
     return () => {
