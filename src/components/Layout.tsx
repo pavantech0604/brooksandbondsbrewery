@@ -36,7 +36,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/5 blur-[120px] rounded-full" />
       </div>
       
-      <main className="relative z-10 w-full max-w-full overflow-x-hidden">
+      <main className="relative z-10 w-full max-w-full overflow-x-clip">
         {children}
       </main>
     </div>

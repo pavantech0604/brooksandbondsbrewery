@@ -5,7 +5,7 @@ import bgImage from '../assets/bg.jpg';
 
 const Hero: React.FC = () => {
   const { scrollY } = useScroll();
-  const springY = useSpring(useTransform(scrollY, [0, 500], [0, 150]), {
+  const springY = useSpring(useTransform(scrollY, [0, 500], [0, 120]), {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001
@@ -13,68 +13,83 @@ const Hero: React.FC = () => {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   return (
-    <section id="home" className="relative min-h-[90vh] md:min-h-screen w-full flex items-center justify-center overflow-hidden py-20 md:py-32">
+    <section id="home" className="relative flex min-h-screen w-full items-center justify-center overflow-hidden px-0 pb-14 pt-28 md:pb-18 md:pt-34">
       {/* Background with Parallax */}
-      <motion.div 
+      <motion.div
         style={{ y: springY }}
         className="absolute inset-0 z-0"
       >
-        <img 
-          src={bgImage} 
+        <img
+          src={bgImage}
           alt="Brooks & Bonds Background"
-          className="w-full h-full object-cover transition-opacity duration-1000 opacity-90 brightness-[0.7] contrast-[1.1]"
+          className="h-full w-full object-cover object-center transition-opacity duration-1000 opacity-100 brightness-[0.85] contrast-[1.1] saturate-[1.05]"
         />
         {/* Subtle Dark Overlays for Legibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/60" />
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,6,8,0.5)_0%,rgba(10,10,12,0.1)_28%,rgba(10,10,12,0.2)_72%,rgba(8,8,10,0.9)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_36%,rgba(242,202,80,0.15),transparent_45%)]" />
       </motion.div>
+
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-40 bg-gradient-to-b from-black/40 to-transparent" />
 
       {/* Content */}
-      <motion.div 
+      <motion.div
         style={{ opacity }}
-        className="relative z-10 text-center container-premium flex flex-col items-center px-4"
+        data-anchor-target="home"
+        className="container-premium relative z-10"
       >
-        <AnimateIn delay={0.2}>
-          <span className="font-label tracking-[0.3em] md:tracking-[0.5em] text-on-surface bg-black/60 backdrop-blur-md px-4 md:px-6 py-2 rounded-full uppercase text-[9px] md:text-[10px] mb-6 md:mb-8 inline-block border border-primary/20 shadow-[0_0_20px_rgba(242,202,80,0.2)]">
-            Established 1892 — Koramangala
-          </span>
-        </AnimateIn>
+        <div className="mx-auto flex max-w-6xl flex-col items-center text-center">
+          <AnimateIn delay={0.15}>
+            <span className="mb-6 inline-flex rounded-full border border-primary/20 bg-black/45 px-4 py-2 text-[9px] uppercase tracking-[0.32em] text-on-surface shadow-[0_0_24px_rgba(242,202,80,0.12)] backdrop-blur-md md:mb-7 md:px-5 md:text-[10px] md:tracking-[0.42em]">
+              Established 1892 — Koramangala
+            </span>
+          </AnimateIn>
 
-        <AnimateIn delay={0.4}>
-          <h1 className="font-headline text-4xl sm:text-6xl md:text-8xl text-on-surface font-light tracking-tight leading-[1.1] mb-8 md:mb-10 drop-shadow-[0_4px_30px_rgba(0,0,0,1)] px-2">
-            THE ART OF <br />
-            <span className="italic text-primary drop-shadow-[0_0_25px_rgba(242,202,80,0.4)]">THE VOID</span>
-          </h1>
-        </AnimateIn>
+          <AnimateIn delay={0.3}>
+            <div className="mx-auto max-w-5xl">
+              <h1 className="font-headline text-[clamp(3rem,8vw,6.6rem)] font-light uppercase leading-[0.88] tracking-[-0.05em] text-on-surface drop-shadow-[0_8px_34px_rgba(0,0,0,0.85)]">
+                The Art of
+                <br />
+                <span className="italic text-primary drop-shadow-[0_0_30px_rgba(242,202,80,0.2)]">the Void</span>
+              </h1>
+            </div>
+          </AnimateIn>
 
-        <AnimateIn delay={0.6}>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-8 w-full sm:w-auto px-6 sm:px-0">
-            <a 
-              href="#reservations" 
-              className="w-full sm:w-auto brass-gradient text-[#0a0a0a] px-10 py-4 rounded-xl font-label text-xs font-bold uppercase tracking-[0.3em] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)] transition-all hover:scale-[1.02] active:scale-[0.98] text-center"
-            >
-              Secure Your Ritual
-            </a>
-            <a 
-              href="#gallery" 
-              className="w-full sm:w-auto border border-white/20 text-on-surface px-10 py-4 rounded-xl font-label text-xs font-bold uppercase tracking-[0.3em] bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all text-center"
-            >
-              Explore Archive
-            </a>
-          </div>
-        </AnimateIn>
+          <AnimateIn delay={0.45}>
+            <p className="mx-auto mt-5 max-w-3xl text-sm leading-7 text-on-surface-variant/90 md:mt-6 md:text-lg md:leading-8">
+              Craft pours, warm brass light, and an industrial rooftop atmosphere brought into a cleaner digital experience that feels polished from the first screen.
+            </p>
+          </AnimateIn>
+
+          <AnimateIn delay={0.55}>
+            <div className="mt-7 flex flex-wrap items-center justify-center gap-4 text-[11px] font-bold uppercase tracking-[0.28em] text-white md:mt-8 md:gap-7 md:text-xs md:font-black">
+              <span>Craft Beer</span>
+              <span className="hidden h-1.5 w-1.5 rounded-full bg-primary sm:block" />
+              <span>Rooftop Evenings</span>
+              <span className="hidden h-1.5 w-1.5 rounded-full bg-primary sm:block" />
+              <span>Koramangala</span>
+            </div>
+          </AnimateIn>
+
+          <AnimateIn delay={0.65}>
+            <div className="mt-8 flex w-full max-w-2xl flex-col items-center justify-center gap-4 sm:flex-row md:mt-10">
+              <a
+                href="#reservations"
+                className="w-full rounded-xl px-8 py-4 text-center font-label text-xs font-bold uppercase tracking-[0.28em] text-[#0a0a0a] shadow-[0_22px_44px_-16px_rgba(0,0,0,0.6)] transition-all hover:scale-[1.02] active:scale-[0.98] sm:w-auto brass-gradient"
+              >
+                Secure Your Ritual
+              </a>
+              <a
+                href="#gallery"
+                className="w-full rounded-xl border border-white/15 bg-white/5 px-8 py-4 text-center font-label text-xs font-bold uppercase tracking-[0.28em] text-on-surface backdrop-blur-sm transition-all hover:bg-white/10 sm:w-auto"
+              >
+                Explore Archive
+              </a>
+            </div>
+          </AnimateIn>
+
+        </div>
       </motion.div>
 
-      {/* Scroll Indicator */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.6 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 hidden md:flex"
-      >
-        <span className="font-label text-[9px] uppercase tracking-[0.4em] opacity-50">Discovery Sequence</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-primary/60 to-transparent" />
-      </motion.div>
     </section>
   );
 };

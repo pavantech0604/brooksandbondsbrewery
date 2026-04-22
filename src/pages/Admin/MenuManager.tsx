@@ -12,11 +12,11 @@ import {
   Circle,
   Loader2
 } from 'lucide-react';
+import { useBrewery } from '../../context/BreweryContext';
 import { cn } from '../../lib/utils';
-import { useBreweryStore } from '../../hooks/useBreweryStore';
 
 const MenuManager: React.FC = () => {
-  const { beers, updateBeerStatus, deleteBeer, loading } = useBreweryStore();
+  const { beers, updateBeerStatus, deleteBeer, loading } = useBrewery();
   const [searchTerm, setSearchTerm] = useState('');
 
   const filteredMenu = (beers || []).filter(item => 

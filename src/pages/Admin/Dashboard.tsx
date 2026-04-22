@@ -10,11 +10,11 @@ import {
   Calendar,
   Loader2
 } from 'lucide-react';
-import { useBreweryStore } from '../../hooks/useBreweryStore';
+import { useBrewery } from '../../context/BreweryContext';
 import { cn } from '../../lib/utils';
 
 const Dashboard: React.FC = () => {
-  const { beers, reservations, loading } = useBreweryStore();
+  const { beers, reservations, loading } = useBrewery();
 
   if (loading) {
     return (

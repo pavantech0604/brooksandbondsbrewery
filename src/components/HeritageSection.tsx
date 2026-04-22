@@ -5,66 +5,82 @@ import realBar from '../assets/real/bar-counter.jpg';
 
 const HeritageSection: React.FC = () => {
   return (
-    <section id="our-story" className="pt-20 pb-28 md:pt-32 md:pb-48 bg-background relative overflow-hidden w-full max-w-full scroll-mt-8">
-      <div className="container-premium grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center px-4 md:px-8">
+    <section
+      id="our-story"
+      data-anchor-target="our-story"
+      className="relative w-full max-w-full overflow-hidden bg-background pt-12 pb-12 scroll-mt-14 md:pt-14 md:pb-14 lg:flex lg:min-h-[90vh] lg:items-center lg:pt-16 lg:pb-16"
+    >
+      <div
+        className="container-premium grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:items-center lg:gap-10 xl:gap-16"
+      >
 
         {/* Story Content */}
-        <div className="lg:col-span-5 space-y-10 md:space-y-12">
+        <div className="space-y-5 md:space-y-6 lg:col-span-6">
           <AnimateIn direction="left">
-            <span className="font-label tracking-[0.4em] text-primary uppercase text-[10px] mb-4 block">Legacy Sequence</span>
-            <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl text-on-surface leading-[1.1] tracking-tighter uppercase px-1">
-              A Living <span className="italic text-primary font-light">Archive</span> <br />
-              Of Craft & Time
+            <span className="mb-3 block font-label text-[10px] md:text-xs uppercase tracking-[0.4em] text-primary">Legacy Sequence</span>
+            <h2 className="font-headline text-[clamp(2.2rem,4.5vw,3.75rem)] uppercase leading-[0.9] tracking-[-0.05em] text-on-surface">
+              A Living <span className="font-light italic text-primary">Archive</span> Of Craft & Time
             </h2>
           </AnimateIn>
 
           <AnimateIn direction="left" delay={0.2}>
-            <p className="text-on-surface-variant font-body leading-relaxed text-sm md:text-base italic opacity-80 max-w-lg">
+            <p className="max-w-xl text-[14px] md:text-[15px] italic leading-[1.8] text-on-surface-variant/85">
               Brooks & Bonds stands as a bastion of traditional alchemy. Located in the heart of Koramangala, our space is a deliberate descent into the industrial soul—where the "bio-chemical factory" theme meets the patient pursuit of the perfect pour.
             </p>
           </AnimateIn>
 
-          <AnimateIn direction="left" delay={0.4} className="flex">
-            <div className="pt-4">
+          <div className="pt-1">
+            <AnimateIn direction="left" delay={0.5}>
               <motion.a
                 href="#gallery"
-                whileHover={{ x: 10 }}
-                className="group inline-flex items-center gap-6 text-primary font-label text-[11px] uppercase tracking-[0.4em] font-bold"
+                whileHover={{ x: 8 }}
+                className="group inline-flex items-center gap-4 font-label text-xs font-bold uppercase tracking-[0.3em] text-primary"
               >
                 Explore Archive
-                <span className="h-[0.5px] w-12 bg-primary/20 group-hover:w-20 group-hover:bg-primary transition-all duration-700" />
+                <span className="h-[1px] w-12 bg-primary/30 transition-all duration-700 group-hover:w-20 group-hover:bg-primary" />
               </motion.a>
-            </div>
-          </AnimateIn>
+            </AnimateIn>
+          </div>
 
           {/* Technical Stats */}
-          <div className="grid grid-cols-2 gap-10 md:gap-16 pt-12 border-t border-white/5">
+          <div className="grid grid-cols-2 gap-4 border-t border-white/10 pt-5 md:gap-5">
             <AnimateIn direction="up" delay={0.5}>
-              <p className="font-headline text-4xl md:text-5xl text-primary mb-2">1892</p>
-              <p className="font-label text-[10px] uppercase tracking-[0.3em] text-on-surface-variant/40">Heritage Roots</p>
+              <div className="rounded-[1.25rem] border border-white/10 bg-white/[0.03] px-5 py-4">
+                <p className="mb-1 font-headline text-[2.25rem] text-primary md:text-[2.5rem] leading-none">1892</p>
+                <p className="font-label text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-on-surface-variant/70 mt-2">Heritage Roots</p>
+              </div>
             </AnimateIn>
             <AnimateIn direction="up" delay={0.6}>
-              <p className="font-headline text-4xl md:text-5xl text-primary mb-2">6+</p>
-              <p className="font-label text-[10px] uppercase tracking-[0.3em] text-on-surface-variant/40">House Ferments</p>
+              <div className="rounded-[1.25rem] border border-white/10 bg-white/[0.03] px-5 py-4">
+                <p className="mb-1 font-headline text-[2.25rem] text-primary md:text-[2.5rem] leading-none">6+</p>
+                <p className="font-label text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-on-surface-variant/70 mt-2">House Ferments</p>
+              </div>
             </AnimateIn>
           </div>
         </div>
 
         {/* Visual Content */}
-        <div className="lg:col-span-7 relative max-w-full overflow-visible mt-12 lg:mt-0">
-          <AnimateIn direction="right" delay={0.3} className="relative z-10 aspect-[4/3] sm:aspect-[16/10] overflow-hidden rounded-[2.5rem] md:rounded-[3.5rem] shadow-[0_48px_80px_-16px_rgba(0,0,0,0.8)] border border-white/10 group">
+        <div className="relative max-w-full overflow-visible lg:col-span-6">
+          <AnimateIn direction="right" delay={0.3} className="group relative z-10 aspect-[4/3] overflow-hidden rounded-[2rem] border border-white/10 shadow-[0_32px_64px_-20px_rgba(0,0,0,0.8)] md:aspect-[16/10] md:rounded-[2.5rem]">
             <img
               src={realBar}
               alt="Industrial Brewing Details"
-              className="w-full h-full object-cover contrast-[1.10] brightness-[1.05] saturate-[1.10] group-hover:scale-105 transition-all duration-1000"
+              className="w-full h-full object-cover contrast-[1.15] brightness-[1.10] saturate-[1.10] group-hover:scale-105 transition-all duration-1000"
             />
             {/* Inner Shimmer Effect */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+
+            <div className="absolute inset-x-auto bottom-5 right-5 z-20 w-[14.5rem] rounded-[1.25rem] border border-white/10 bg-[#17181c]/95 px-5 py-5 backdrop-blur-xl shadow-[0_32px_64px_-20px_rgba(0,0,0,1)] sm:bottom-6 sm:right-6 sm:w-[17rem]">
+              <p className="font-label text-[10px] uppercase tracking-[0.3em] text-primary font-bold">Atmosphere</p>
+              <p className="mt-2.5 text-[13px] sm:text-sm leading-relaxed text-on-surface-variant/90 italic">
+                Warm brass tones, industrial character, and a more compact editorial layout that keeps the story readable at a glance.
+              </p>
+            </div>
           </AnimateIn>
 
           {/* Decorative Elements */}
-          <div className="absolute -bottom-10 -left-10 w-48 h-48 border border-primary/5 rounded-full blur-[2px] -z-0 hidden md:block" />
-          <div className="absolute -top-16 -right-8 text-7xl sm:text-8xl md:text-[10rem] font-headline font-black text-white/[0.02] select-none pointer-events-none blur-[1px]">
+          <div className="absolute -bottom-8 -left-8 hidden h-48 w-48 rounded-full border border-primary/10 blur-[3px] md:block" />
+          <div className="pointer-events-none absolute -right-6 top-8 select-none font-headline text-8xl font-black text-white/[0.03] blur-[1px] sm:text-9xl md:text-[10rem]">
             B&B
           </div>
         </div>

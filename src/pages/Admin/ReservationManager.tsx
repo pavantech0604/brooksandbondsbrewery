@@ -15,10 +15,10 @@ import {
 } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { motion as m, AnimatePresence } from 'framer-motion';
-import { useBreweryStore } from '../../hooks/useBreweryStore';
+import { useBrewery } from '../../context/BreweryContext';
 
 const ReservationManager: React.FC = () => {
-  const { reservations, updateReservationStatus, loading } = useBreweryStore();
+  const { reservations, updateReservationStatus, loading } = useBrewery();
   const [activeDate, setActiveDate] = useState(new Date().toISOString().split('T')[0]);
 
   const filteredReservations = (reservations || []).filter(r => r.date === activeDate);

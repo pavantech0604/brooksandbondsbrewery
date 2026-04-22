@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+
 
 @theme {
   --color-background: #121316;
@@ -26,6 +26,12 @@
 }
 
 @layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   html {
     scroll-behavior: smooth;
     background-color: #121316;
@@ -36,6 +42,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    margin: 0;
   }
 }
 
@@ -96,7 +103,19 @@
   }
 
   .container-premium {
-    @apply max-w-[1440px] mx-auto px-6 md:px-12 w-full;
+    @apply w-full max-w-[1240px] mx-auto px-5 sm:px-6 lg:px-8 xl:px-10;
+  }
+
+  .section-frame {
+    @apply pt-4 pb-10 md:pt-6 md:pb-12 lg:pt-8 lg:pb-16;
+  }
+
+  .section-heading {
+    @apply font-headline text-[clamp(2.75rem,5vw,4.75rem)] leading-[0.9] tracking-[-0.045em] uppercase;
+  }
+
+  .section-copy {
+    @apply max-w-2xl text-sm md:text-[15px] leading-7 text-on-surface-variant/85;
   }
 }
 

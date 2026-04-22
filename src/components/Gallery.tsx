@@ -97,43 +97,42 @@ const Gallery: React.FC = () => {
   const selectedItem = items.find(item => item.id === selectedId);
 
   return (
-    <section id="gallery" className="pt-24 pb-32 bg-background relative overflow-hidden scroll-mt-8">
-      <div className="container-premium px-4 md:px-8">
+    <section id="gallery" className="section-frame relative overflow-hidden bg-background scroll-mt-14">
+      <div data-anchor-target="gallery" className="container-premium">
         
         {/* Header content */}
-        <div className="text-center mb-16 md:mb-24">
-          <AnimateIn>
-            <span className="font-label tracking-[0.4em] text-primary uppercase text-[10px] md:text-xs mb-6 block">The Living Vault</span>
-            <h2 className="font-headline text-5xl sm:text-7xl md:text-8xl text-on-surface leading-none mb-10 uppercase tracking-tighter">
+        <div className="mx-auto mb-10 max-w-4xl text-center md:mb-14">
+          <AnimateIn className="space-y-5">
+            <span className="block font-label text-[10px] uppercase tracking-[0.35em] text-primary md:text-xs">The Living Vault</span>
+            <h2 className="section-heading text-on-surface">
               Bento <span className="italic font-light text-primary">Archive</span>
             </h2>
+            <p className="mx-auto max-w-2xl text-sm leading-7 text-on-surface-variant/80 md:text-base">
+              The archive grid is tightened to sit comfortably inside the page width, with cleaner tab spacing and more predictable card heights.
+            </p>
           </AnimateIn>
 
           {/* Dynamic Tabs */}
-          <div className="flex flex-wrap justify-center gap-4 md:gap-12 mt-8 md:mt-12">
+          <div className="mt-6 flex flex-wrap justify-center gap-3 md:mt-8 md:gap-4">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveTab(cat)}
                 className={cn(
-                  "font-label text-[10px] md:text-xs uppercase tracking-[0.2em] pb-2 transition-all relative",
-                  activeTab === cat ? "text-primary" : "text-on-surface-variant hover:text-primary"
+                  "relative rounded-full border px-4 py-2 font-label text-[10px] uppercase tracking-[0.2em] transition-all md:px-5 md:text-xs",
+                  activeTab === cat
+                    ? "border-primary/40 bg-primary/10 text-primary"
+                    : "border-white/8 text-on-surface-variant hover:border-primary/20 hover:text-primary"
                 )}
               >
                 {cat}
-                {activeTab === cat && (
-                  <motion.div 
-                    layoutId="underline" 
-                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary" 
-                  />
-                )}
               </button>
             ))}
           </div>
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[280px] md:auto-rows-[350px]">
+        <div className="grid auto-rows-[220px] grid-cols-1 gap-4 md:grid-cols-3 md:auto-rows-[250px] md:gap-4">
           <AnimatePresence mode="popLayout">
             {filteredItems.map((item) => (
               <motion.div
@@ -146,7 +145,7 @@ const Gallery: React.FC = () => {
                 onClick={() => setSelectedId(item.id)}
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 className={cn(
-                  "group relative overflow-hidden rounded-2xl md:rounded-[2rem] glass-card bg-black shadow-2xl cursor-pointer",
+                  "glass-card group relative cursor-pointer overflow-hidden rounded-2xl bg-black shadow-2xl md:rounded-[2rem]",
                   item.gridSpan
                 )}
               >
@@ -193,7 +192,7 @@ const Gallery: React.FC = () => {
                 initial={{ opacity: 0, y: 30, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 30, scale: 0.95 }}
-                className="relative w-full max-w-5xl bg-surface-container-lowest rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-white/5 flex flex-col lg:flex-row h-auto max-h-[90vh]"
+                className="relative flex h-auto max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-[2rem] border border-white/5 bg-surface-container-low shadow-2xl md:rounded-[3rem] lg:flex-row"
               >
                 {/* Image Section */}
                 <div className="w-full lg:w-3/5 h-[300px] sm:h-[400px] lg:h-auto relative group">

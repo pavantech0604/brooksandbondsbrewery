@@ -37,7 +37,7 @@ const Navigation: React.FC = () => {
         className={cn(
           "fixed top-0 w-full z-50 transition-all duration-500",
           scrolled || mobileMenuOpen
-            ? "bg-[#121316]/95 py-2 shadow-2xl shadow-black/80 border-b border-primary/10 backdrop-blur-md"
+            ? "bg-[#121316]/95 py-2 shadow-2xl shadow-black/80 backdrop-blur-md"
             : "bg-transparent py-4 md:py-6"
         )}
       >
@@ -147,7 +147,7 @@ const Navigation: React.FC = () => {
                 <Calendar size={18} />
                 Book a Ritual
               </motion.a>
-              
+
               <div className="pt-12 text-center opacity-30">
                 <p className="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Est. 1892</p>
                 <p className="font-label text-[9px] uppercase tracking-[0.3em] text-primary mt-2">Koramangala, Bangalore</p>
